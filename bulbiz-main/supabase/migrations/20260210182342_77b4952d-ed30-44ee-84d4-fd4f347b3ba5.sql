@@ -1,0 +1,97 @@
+
+-- Seed: Comprehensive plumbing catalog (global items, user_id = NULL)
+INSERT INTO catalog_material (category_path, label, type, unit, default_qty, unit_price, vat_rate, tags, synonyms) VALUES
+-- WC
+('WC/Mécanisme', 'Mécanisme de chasse d''eau complet', 'GROSSE_FOURNITURE', 'u', 1, 25, 10, ARRAY['wc','chasse','mécanisme'], ARRAY['méca','mecanisme chasse']),
+('WC/Mécanisme', 'Robinet flotteur WC', 'PETITE_FOURNITURE', 'u', 1, 12, 10, ARRAY['wc','flotteur','robinet'], ARRAY['flotteur wc']),
+('WC/Mécanisme', 'Joint de mécanisme de chasse', 'CONSOMMABLE', 'u', 1, 3.50, 10, ARRAY['wc','joint','chasse'], ARRAY['joint chasse']),
+('WC/Mécanisme', 'Bouton poussoir double chasse', 'PETITE_FOURNITURE', 'u', 1, 8, 10, ARRAY['wc','bouton','chasse'], ARRAY['bouton chasse','poussoir']),
+('WC/Cuvette', 'Cuvette WC sur pied', 'GROSSE_FOURNITURE', 'u', 1, 85, 10, ARRAY['wc','cuvette'], ARRAY['cuvette','toilette']),
+('WC/Cuvette', 'Abattant WC standard', 'PETITE_FOURNITURE', 'u', 1, 25, 10, ARRAY['wc','abattant'], ARRAY['lunette','siège wc']),
+('WC/Réservoir', 'Réservoir WC attenant', 'GROSSE_FOURNITURE', 'u', 1, 55, 10, ARRAY['wc','réservoir'], ARRAY['reservoir']),
+('WC/Évacuation', 'Pipe WC droite Ø100', 'PETITE_FOURNITURE', 'u', 1, 8, 10, ARRAY['wc','pipe','évacuation'], ARRAY['pipe wc']),
+('WC/Évacuation', 'Pipe WC coudée Ø100', 'PETITE_FOURNITURE', 'u', 1, 10, 10, ARRAY['wc','pipe','coudée'], ARRAY['coude wc']),
+('WC/Alimentation', 'Robinet d''arrêt WC 12/17', 'PETITE_FOURNITURE', 'u', 1, 8, 10, ARRAY['wc','robinet','arrêt'], ARRAY['vanne wc']),
+('WC/Alimentation', 'Flexible alimentation WC 30cm', 'PETITE_FOURNITURE', 'u', 1, 5, 10, ARRAY['wc','flexible'], ARRAY['tuyau wc']),
+('WC/Bâti-support', 'Bâti-support WC suspendu', 'GROSSE_FOURNITURE', 'u', 1, 180, 10, ARRAY['wc','bâti','suspendu'], ARRAY['bati support']),
+('WC/Joints', 'Joint de cuvette WC (cire)', 'CONSOMMABLE', 'u', 1, 4, 10, ARRAY['wc','joint','cire'], ARRAY['joint cire']),
+-- Évier / Lavabo
+('Évier/Siphon', 'Siphon évier PVC Ø40', 'PETITE_FOURNITURE', 'u', 1, 8, 10, ARRAY['évier','siphon','PVC'], ARRAY['syphon évier']),
+('Évier/Siphon', 'Siphon lavabo laiton chromé', 'PETITE_FOURNITURE', 'u', 1, 18, 10, ARRAY['lavabo','siphon','laiton'], ARRAY['syphon lavabo']),
+('Évier/Bonde', 'Bonde évier Ø60 inox', 'PETITE_FOURNITURE', 'u', 1, 12, 10, ARRAY['évier','bonde'], ARRAY['crépine']),
+('Évier/Bonde', 'Bonde lavabo clic-clac', 'PETITE_FOURNITURE', 'u', 1, 15, 10, ARRAY['lavabo','bonde','clic-clac'], ARRAY['bonde clic clac']),
+('Évier/Robinetterie', 'Mitigeur évier monotrou', 'GROSSE_FOURNITURE', 'u', 1, 55, 10, ARRAY['évier','mitigeur','robinet'], ARRAY['robinet évier']),
+('Évier/Robinetterie', 'Mitigeur lavabo monotrou', 'GROSSE_FOURNITURE', 'u', 1, 45, 10, ARRAY['lavabo','mitigeur'], ARRAY['robinet lavabo']),
+('Évier/Robinetterie', 'Mousseur robinet M24', 'CONSOMMABLE', 'u', 1, 3, 10, ARRAY['évier','mousseur'], ARRAY['aérateur']),
+('Évier/Flexible', 'Flexible alimentation 50cm', 'PETITE_FOURNITURE', 'u', 2, 5, 10, ARRAY['évier','flexible'], ARRAY['flexible robinet']),
+('Évier/Évacuation', 'Tube PVC Ø40 1m', 'PETITE_FOURNITURE', 'm', 1, 4, 10, ARRAY['évier','PVC','évacuation'], ARRAY['tuyau PVC 40']),
+('Évier/Joints', 'Joint bonde évier (lot 5)', 'CONSOMMABLE', 'lot', 1, 3, 10, ARRAY['évier','joint'], ARRAY['joint évier']),
+-- Douche / Baignoire
+('Douche/Mitigeur', 'Mitigeur douche mural', 'GROSSE_FOURNITURE', 'u', 1, 65, 10, ARRAY['douche','mitigeur'], ARRAY['robinet douche']),
+('Douche/Mitigeur', 'Mitigeur thermostatique douche', 'GROSSE_FOURNITURE', 'u', 1, 120, 10, ARRAY['douche','thermostatique'], ARRAY['thermostatique']),
+('Douche/Flexible', 'Flexible douche 1m50', 'PETITE_FOURNITURE', 'u', 1, 10, 10, ARRAY['douche','flexible'], ARRAY['tuyau douche']),
+('Douche/Douchette', 'Douchette 3 jets', 'PETITE_FOURNITURE', 'u', 1, 15, 10, ARRAY['douche','douchette'], ARRAY['pommeau']),
+('Douche/Colonne', 'Colonne de douche complète', 'GROSSE_FOURNITURE', 'u', 1, 150, 10, ARRAY['douche','colonne'], ARRAY['ensemble douche']),
+('Douche/Bonde', 'Bonde douche Ø60', 'PETITE_FOURNITURE', 'u', 1, 15, 10, ARRAY['douche','bonde'], ARRAY['bonde douche']),
+('Douche/Siphon', 'Siphon douche extra-plat', 'PETITE_FOURNITURE', 'u', 1, 20, 10, ARRAY['douche','siphon'], ARRAY['siphon douche']),
+('Douche/Étanchéité', 'Bande d''étanchéité douche (5m)', 'CONSOMMABLE', 'u', 1, 12, 10, ARRAY['douche','étanchéité'], ARRAY['étanchéité']),
+('Baignoire/Vidage', 'Vidage baignoire automatique', 'PETITE_FOURNITURE', 'u', 1, 35, 10, ARRAY['baignoire','vidage'], ARRAY['bonde baignoire']),
+('Baignoire/Mitigeur', 'Mitigeur bain-douche mural', 'GROSSE_FOURNITURE', 'u', 1, 75, 10, ARRAY['baignoire','mitigeur'], ARRAY['robinet baignoire']),
+-- Robinetterie
+('Robinetterie/Arrêt', 'Robinet d''arrêt 15/21 laiton', 'PETITE_FOURNITURE', 'u', 1, 10, 10, ARRAY['robinet','arrêt'], ARRAY['vanne arrêt']),
+('Robinetterie/Arrêt', 'Vanne quart de tour 20/27', 'PETITE_FOURNITURE', 'u', 1, 12, 10, ARRAY['vanne','quart de tour'], ARRAY['quart tour']),
+('Robinetterie/Cartouche', 'Cartouche céramique Ø40', 'PETITE_FOURNITURE', 'u', 1, 18, 10, ARRAY['cartouche','mitigeur'], ARRAY['cartouche robinet']),
+('Robinetterie/Clapet', 'Clapet anti-retour 20/27', 'PETITE_FOURNITURE', 'u', 1, 8, 10, ARRAY['clapet','anti-retour'], ARRAY['anti retour']),
+('Robinetterie/Raccords', 'Raccord rapide PER 16', 'PETITE_FOURNITURE', 'u', 1, 4, 10, ARRAY['raccord','PER'], ARRAY['raccord rapide']),
+-- Chauffe-eau
+('Chauffe-eau/Sécurité', 'Groupe de sécurité 20/27', 'GROSSE_FOURNITURE', 'u', 1, 25, 10, ARRAY['chauffe_eau','groupe','sécurité'], ARRAY['GS']),
+('Chauffe-eau/Sécurité', 'Soupape de sécurité 7 bars', 'PETITE_FOURNITURE', 'u', 1, 12, 10, ARRAY['chauffe_eau','soupape'], ARRAY['soupape']),
+('Chauffe-eau/Pièces', 'Résistance blindée 2400W', 'GROSSE_FOURNITURE', 'u', 1, 45, 10, ARRAY['chauffe_eau','résistance'], ARRAY['résistance cumulus']),
+('Chauffe-eau/Pièces', 'Thermostat chauffe-eau', 'PETITE_FOURNITURE', 'u', 1, 22, 10, ARRAY['chauffe_eau','thermostat'], ARRAY['thermostat cumulus']),
+('Chauffe-eau/Pièces', 'Anode magnésium Ø22', 'PETITE_FOURNITURE', 'u', 1, 18, 10, ARRAY['chauffe_eau','anode'], ARRAY['anode']),
+('Chauffe-eau/Raccordement', 'Raccord diélectrique 20/27', 'PETITE_FOURNITURE', 'u', 2, 8, 10, ARRAY['chauffe_eau','diélectrique'], ARRAY['manchon isolant']),
+('Chauffe-eau/Raccordement', 'Vase d''expansion sanitaire 8L', 'GROSSE_FOURNITURE', 'u', 1, 45, 10, ARRAY['chauffe_eau','vase','expansion'], ARRAY['vase expansion']),
+('Chauffe-eau/Raccordement', 'Flexible inox 50cm 20/27', 'PETITE_FOURNITURE', 'u', 2, 10, 10, ARRAY['chauffe_eau','flexible'], ARRAY['flexible inox']),
+-- Canalisations
+('Canalisation/Cuivre', 'Tube cuivre Ø14 (1m)', 'PETITE_FOURNITURE', 'm', 1, 6, 10, ARRAY['canalisation','cuivre'], ARRAY['cuivre 14']),
+('Canalisation/Cuivre', 'Tube cuivre Ø16 (1m)', 'PETITE_FOURNITURE', 'm', 1, 7, 10, ARRAY['canalisation','cuivre'], ARRAY['cuivre 16']),
+('Canalisation/PER', 'Tube PER Ø16 (1m)', 'PETITE_FOURNITURE', 'm', 1, 2, 10, ARRAY['canalisation','PER'], ARRAY['per 16']),
+('Canalisation/Multicouche', 'Tube multicouche Ø16 (1m)', 'PETITE_FOURNITURE', 'm', 1, 3, 10, ARRAY['canalisation','multicouche'], ARRAY['multicouche']),
+('Canalisation/Raccords', 'Coude cuivre 90° Ø14', 'PETITE_FOURNITURE', 'u', 1, 2, 10, ARRAY['canalisation','coude'], ARRAY['coude cuivre']),
+('Canalisation/Raccords', 'Manchon cuivre Ø14', 'PETITE_FOURNITURE', 'u', 1, 1.50, 10, ARRAY['canalisation','manchon'], ARRAY['manchon']),
+('Canalisation/Raccords', 'Collier fixation Ø16 (lot 10)', 'CONSOMMABLE', 'lot', 1, 5, 10, ARRAY['canalisation','collier'], ARRAY['collier']),
+('Canalisation/PVC', 'Tube PVC Ø100 (1m)', 'PETITE_FOURNITURE', 'm', 1, 6, 10, ARRAY['canalisation','PVC'], ARRAY['pvc 100']),
+('Canalisation/PVC', 'Coude PVC 90° Ø100', 'PETITE_FOURNITURE', 'u', 1, 4, 10, ARRAY['canalisation','PVC','coude'], ARRAY['coude pvc']),
+('Canalisation/PVC', 'Culotte PVC 45° Ø100', 'PETITE_FOURNITURE', 'u', 1, 5, 10, ARRAY['canalisation','PVC'], ARRAY['culotte pvc']),
+-- Évacuation
+('Évacuation/PVC', 'Tampon de visite PVC Ø100', 'PETITE_FOURNITURE', 'u', 1, 6, 10, ARRAY['évacuation','tampon'], ARRAY['tampon visite']),
+('Évacuation/Clapet', 'Clapet anti-retour PVC Ø100', 'PETITE_FOURNITURE', 'u', 1, 25, 10, ARRAY['évacuation','clapet'], ARRAY['clapet PVC']),
+-- Consommables
+('Consommables/Étanchéité', 'Téflon PTFE 12m', 'CONSOMMABLE', 'u', 1, 1.50, 20, ARRAY['consommable','teflon'], ARRAY['teflon','ruban']),
+('Consommables/Étanchéité', 'Filasse + pâte à joint', 'CONSOMMABLE', 'u', 1, 6, 20, ARRAY['consommable','filasse'], ARRAY['filasse','chanvre']),
+('Consommables/Étanchéité', 'Colle PVC gel 250ml', 'CONSOMMABLE', 'u', 1, 8, 20, ARRAY['consommable','colle','PVC'], ARRAY['colle pvc']),
+('Consommables/Étanchéité', 'Silicone sanitaire blanc 300ml', 'CONSOMMABLE', 'u', 1, 6, 20, ARRAY['consommable','silicone'], ARRAY['silicone','mastic']),
+('Consommables/Joints', 'Lot joints fibre assortis', 'CONSOMMABLE', 'lot', 1, 4, 20, ARRAY['consommable','joint','fibre'], ARRAY['joints fibre']),
+('Consommables/Joints', 'Lot joints caoutchouc assortis', 'CONSOMMABLE', 'lot', 1, 5, 20, ARRAY['consommable','joint','caoutchouc'], ARRAY['joints caoutchouc']),
+-- Frais
+('Frais/Déplacement', 'Déplacement zone urbaine', 'PETITE_FOURNITURE', 'forfait', 1, 35, 20, ARRAY['déplacement','frais'], ARRAY['frais déplacement']),
+('Frais/Déplacement', 'Déplacement hors zone', 'PETITE_FOURNITURE', 'forfait', 1, 55, 20, ARRAY['déplacement','frais'], ARRAY['déplacement loin']),
+('Frais/Fournitures', 'Petites fournitures', 'CONSOMMABLE', 'forfait', 1, 15, 20, ARRAY['frais','fournitures'], ARRAY['quincaillerie']),
+('Frais/Mise en sécurité', 'Mise en sécurité installation', 'PETITE_FOURNITURE', 'forfait', 1, 45, 10, ARRAY['frais','sécurité','urgence'], ARRAY['mise en sécurité']),
+-- Débouchage
+('Débouchage/Furet', 'Débouchage furet mécanique', 'PETITE_FOURNITURE', 'forfait', 1, 80, 10, ARRAY['débouchage','furet'], ARRAY['furet mécanique']),
+('Débouchage/Haute pression', 'Débouchage haute pression', 'PETITE_FOURNITURE', 'forfait', 1, 150, 10, ARRAY['débouchage','haute pression'], ARRAY['curage']),
+('Débouchage/Produit', 'Produit déboucheur professionnel', 'CONSOMMABLE', 'u', 1, 12, 20, ARRAY['débouchage','produit'], ARRAY['déboucheur']);
+
+-- Seed: Bundle templates
+INSERT INTO bundle_templates (bundle_name, description, trigger_category, trigger_keywords, sort_order) VALUES
+('Fuite sous évier — pack standard', 'Diagnostic + réparation fuite évier avec remplacement joints/siphon', 'fuite', ARRAY['évier','siphon','fuite','cuisine'], 1),
+('WC qui fuit — pack standard', 'Diagnostic + remplacement mécanisme chasse + joints', 'wc', ARRAY['wc','chasse','fuite','toilette'], 2),
+('Remplacement mitigeur évier', 'Dépose/pose mitigeur évier + raccordements', 'evier', ARRAY['mitigeur','évier','robinet','cuisine'], 3),
+('Débouchage évier', 'Débouchage + vérification écoulement', 'evier', ARRAY['débouchage','évier','bouché','cuisine'], 4),
+('Chauffe-eau — groupe sécurité', 'Remplacement groupe sécurité + raccords', 'chauffe_eau', ARRAY['chauffe_eau','groupe','sécurité','cumulus'], 5),
+('Remplacement chauffe-eau complet', 'Dépose/pose chauffe-eau + raccordements complets', 'chauffe_eau', ARRAY['chauffe_eau','remplacement','cumulus'], 6),
+('Fuite robinet — réparation', 'Remplacement cartouche/joints robinet', 'fuite', ARRAY['robinet','fuite','goutte'], 7),
+('Douche — remplacement mitigeur', 'Dépose/pose mitigeur douche + joints', 'douche', ARRAY['douche','mitigeur','robinet'], 8),
+('Débouchage WC', 'Débouchage WC furet + vérification', 'wc', ARRAY['wc','bouché','débouchage','toilette'], 9),
+('WC — remplacement complet', 'Dépose/pose cuvette WC + raccordements', 'wc', ARRAY['wc','remplacement','cuvette','toilette'], 10);

@@ -1,0 +1,11 @@
+nom,categorie,sous-categorie,unite,prix HT,TVA,type,fournisseur,reference,marque,code interne,notes
+Mécanisme WC complet 3/6L,Plomberie,WC,u,28.50,20,PETITE_FOURNITURE,Cedeo,MEC-WC-36,Geberit,WC-001,Mécanisme double touche
+Joint silicone sanitaire 310ml,Consommables,Joints,u,7.90,20,PETITE_FOURNITURE,Castorama,SIL-310,Sika,CON-001,Translucide
+Tube cuivre Ø14 - 1m,Plomberie,Tube cuivre,m,4.20,20,PETITE_FOURNITURE,SoCoDa,CUI-14,,PLB-014,Écroui
+Tube cuivre Ø16 - 1m,Plomberie,Tube cuivre,m,5.10,20,PETITE_FOURNITURE,SoCoDa,CUI-16,,PLB-016,Écroui
+Tube cuivre Ø22 - 1m,Plomberie,Tube cuivre,m,7.80,20,PETITE_FOURNITURE,SoCoDa,CUI-22,,PLB-022,Écroui
+Mitigeur évier monocommande,Sanitaire,Robinetterie,u,89.00,20,PETITE_FOURNITURE,Cedeo,MIT-EV-01,Grohe,SAN-010,Bec haut
+Siphon évier 1 cuve,Plomberie,Évacuation,u,12.50,20,PETITE_FOURNITURE,Castorama,SIP-EV,Wirquin,PLB-100,PVC blanc
+Téflon PTFE 12m,Consommables,Étanchéité,u,2.30,20,PETITE_FOURNITURE,Brico,TEF-12,,CON-010,Bobine
+Déplacement zone urbaine,Prestations,Déplacement,u,45.00,20,DEPLACEMENT,,,,,Forfait
+Main-d'œuvre plombier,Prestations,Main-d'œuvre,h,55.00,20,MAIN_OEUVRE,,,,,Tarif horaire standard

@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 225 15% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 15% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 15% 12%;
+
+    --primary: 230 80% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 225 14% 95%;
+    --secondary-foreground: 225 15% 12%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 225 14% 95%;
+    --accent-foreground: 225 15% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 230 80% 56%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 230 80% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 225 14% 95%;
+    --sidebar-accent-foreground: 225 15% 12%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 230 80% 56%;
+  }
+
+  .dark {
+    --background: 225 25% 8%;
+    --foreground: 45 10% 93%;
+
+    --card: 225 22% 11%;
+    --card-foreground: 45 10% 93%;
+
+    --popover: 225 22% 11%;
+    --popover-foreground: 45 10% 93%;
+
+    --primary: 42 92% 52%;
+    --primary-foreground: 225 25% 8%;
+
+    --secondary: 225 18% 16%;
+    --secondary-foreground: 45 10% 93%;
+
+    --muted: 225 18% 16%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 225 18% 16%;
+    --accent-foreground: 45 10% 93%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 80% 45%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 225 18% 18%;
+    --input: 225 18% 18%;
+    --ring: 42 92% 52%;
+
+    --sidebar-background: 225 25% 8%;
+    --sidebar-foreground: 45 10% 93%;
+    --sidebar-primary: 42 92% 52%;
+    --sidebar-primary-foreground: 225 25% 8%;
+    --sidebar-accent: 225 18% 16%;
+    --sidebar-accent-foreground: 45 10% 93%;
+    --sidebar-border: 225 18% 18%;
+    --sidebar-ring: 42 92% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* RDV Calendar dots */
+.rdv-calendar .rdv-dot-confirmed::after,
+.rdv-calendar .rdv-dot-pending::after,
+.rdv-calendar .rdv-dot-action::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+}
+
+.rdv-calendar .rdv-dot-confirmed::after {
+  background-color: hsl(var(--success));
+}
+
+.rdv-calendar .rdv-dot-pending::after {
+  background-color: hsl(var(--primary));
+}
+
+.rdv-calendar .rdv-dot-action::after {
+  background-color: hsl(var(--warning));
+}
+
+/* Mobile touch target minimum */
+@media (max-width: 767px) {
+  button, a[role="button"], [role="button"] {
+    min-height: 44px;
+  }
+}

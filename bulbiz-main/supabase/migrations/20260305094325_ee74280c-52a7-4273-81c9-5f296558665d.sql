@@ -1,0 +1,1 @@
+ALTER TABLE public.profiles ADD COLUMN client_message_template text DEFAULT NULL;

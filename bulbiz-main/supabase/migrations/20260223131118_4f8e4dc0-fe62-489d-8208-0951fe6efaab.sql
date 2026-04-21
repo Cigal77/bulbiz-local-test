@@ -1,0 +1,1 @@
+ALTER TABLE public.dossiers ADD COLUMN google_calendar_event_id text;
