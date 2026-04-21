@@ -499,11 +499,28 @@ RÈGLES DEVIS :
     const aiJson = await aiResp.json();
     const toolCall = aiJson.choices?.[0]?.message?.tool_calls?.[0];
     if (!toolCall?.function?.arguments) {
-      return new Response(JSON.stringify({ error: "Réponse IA invalide" }), {
+      const finishReason = aiJson.choices?.[0]?.finish_reason ?? "unknown";
+      console.error("[generate-ai-quote-draft] no tool_call in AI response", JSON.stringify({
+        finish_reason: finishReason,
+        content: aiJson.choices?.[0]?.message?.content ?? null,
+        usage: aiJson.usage ?? null,
+      }));
+      let errMsg = "Réponse IA invalide";
+      if (finishReason === "length") errMsg = "Réponse IA invalide (contexte trop long)";
+      else if (finishReason === "content_filter") errMsg = "Réponse IA invalide (filtre de contenu)";
+      return new Response(JSON.stringify({ error: errMsg, finish_reason: finishReason }), {
         status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-    const payload: AiPayload = JSON.parse(toolCall.function.arguments);
+    let payload: AiPayload;
+    try {
+      payload = JSON.parse(toolCall.function.arguments);
+    } catch (parseErr) {
+      console.error("[generate-ai-quote-draft] JSON.parse failed on tool arguments", parseErr, toolCall.function.arguments?.slice(0, 500));
+      return new Response(JSON.stringify({ error: "Réponse IA invalide (JSON malformé)" }), {
+        status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     // 6) Hybrid pricing : match catalogue
     function matchCatalog(line: AiLineRaw) {
