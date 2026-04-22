@@ -509,45 +509,43 @@ export default function PublicClientForm() {
         </div>
 
         {/* Step 1: Trade selection */}
-        {step === 1 && (
-          <Card key="step-1">
-            <CardHeader>
-              <CardTitle className="text-lg">Type d'intervention</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <p className="text-sm text-muted-foreground">Sélectionnez le(s) type(s) de travaux concernés :</p>
-              <div className="grid grid-cols-2 gap-2">
-                {activeTrades.map((trade) => (
-                  <button
-                    key={trade.id}
-                    type="button"
-                    onClick={() => {
-                      setSelectedTrades((prev) =>
-                        prev.includes(trade.id) ? prev.filter((t) => t !== trade.id) : [...prev, trade.id],
-                      );
-                    }}
-                    className={cn(
-                      "flex items-center gap-2 rounded-lg border p-3 text-left text-sm transition-colors",
-                      selectedTrades.includes(trade.id)
-                        ? "border-primary bg-primary/10 text-primary font-medium"
-                        : "border-border hover:border-primary/40",
-                    )}
-                  >
-                    <span>{trade.icon}</span>
-                    <span>{trade.label}</span>
-                  </button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        )}
+        {/* Caché via CSS au lieu d'être démonté pour éviter le crash insertBefore sur Android */}
+        <Card key="step-1" className={cn(step !== 1 && "hidden")}>
+          <CardHeader>
+            <CardTitle className="text-lg">Type d'intervention</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <p className="text-sm text-muted-foreground">Sélectionnez le(s) type(s) de travaux concernés :</p>
+            <div className="grid grid-cols-2 gap-2">
+              {activeTrades.map((trade) => (
+                <button
+                  key={trade.id}
+                  type="button"
+                  onClick={() => {
+                    setSelectedTrades((prev) =>
+                      prev.includes(trade.id) ? prev.filter((t) => t !== trade.id) : [...prev, trade.id],
+                    );
+                  }}
+                  className={cn(
+                    "flex items-center gap-2 rounded-lg border p-3 text-left text-sm transition-colors",
+                    selectedTrades.includes(trade.id)
+                      ? "border-primary bg-primary/10 text-primary font-medium"
+                      : "border-border hover:border-primary/40",
+                  )}
+                >
+                  <span>{trade.icon}</span>
+                  <span>{trade.label}</span>
+                </button>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Step 2: Client info */}
-        {step === 2 && (
-          <Card key="step-2">
-            <CardHeader>
-              <CardTitle className="text-lg">Vos coordonnées</CardTitle>
-            </CardHeader>
+        <Card key="step-2" className={cn(step !== 2 && "hidden")}>
+          <CardHeader>
+            <CardTitle className="text-lg">Vos coordonnées</CardTitle>
+          </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1.5">
@@ -632,16 +630,14 @@ export default function PublicClientForm() {
                 </div>
               </div>
             </CardContent>
-          </Card>
-        )}
+        </Card>
 
         {/* Step 3: Problem description + media */}
-        {step === 3 && (
-          <Card key="step-3">
-            <CardHeader>
-              <CardTitle className="text-lg">Décrivez votre problème</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+        <Card key="step-3" className={cn(step !== 3 && "hidden")}>
+          <CardHeader>
+            <CardTitle className="text-lg">Décrivez votre problème</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
               <div className="space-y-1.5">
                 <Label htmlFor="description">Description</Label>
                 <Textarea
@@ -726,21 +722,19 @@ export default function PublicClientForm() {
                   </>
                 )}
               </div>
-            </CardContent>
-          </Card>
-        )}
+          </CardContent>
+        </Card>
 
         {/* Step 4: Infos pratiques */}
-        {step === 4 && (
-          <Card key="step-4">
-            <CardHeader>
-              <CardTitle className="text-lg">Quelques infos pratiques</CardTitle>
-              <CardDescription>
-                Pour intervenir dans les meilleures conditions.{" "}
-                <span className="text-primary font-medium">Tout est facultatif.</span>
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-5">
+        <Card key="step-4" className={cn(step !== 4 && "hidden")}>
+          <CardHeader>
+            <CardTitle className="text-lg">Quelques infos pratiques</CardTitle>
+            <CardDescription>
+              Pour intervenir dans les meilleures conditions.{" "}
+              <span className="text-primary font-medium">Tout est facultatif.</span>
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-5">
               {/* Housing type */}
               <div className="space-y-2">
                 <Label className="text-xs flex items-center gap-1.5">
@@ -871,14 +865,13 @@ export default function PublicClientForm() {
                     </button>
                   ))}
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Step 5: Slot proposals (only if enabled) */}
-        {slotsEnabled && step === slotStep && (
-          <Card key="step-slots">
+        {slotsEnabled && (
+          <Card key="step-slots" className={cn(step !== slotStep && "hidden")}>
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-primary" />
@@ -963,12 +956,11 @@ export default function PublicClientForm() {
         )}
 
         {/* Validation step */}
-        {step === validationStep && (
-          <Card key="step-validation">
-            <CardHeader>
-              <CardTitle className="text-lg">Confirmation</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
+        <Card key="step-validation" className={cn(step !== validationStep && "hidden")}>
+          <CardHeader>
+            <CardTitle className="text-lg">Confirmation</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
               {/* Summary */}
               <div className="rounded-lg border bg-muted/50 p-4 space-y-2 text-sm">
                 <p>
@@ -1065,15 +1057,17 @@ export default function PublicClientForm() {
               )}
             </CardContent>
           </Card>
-        )}
 
         {/* Navigation */}
         <div className="flex gap-3 mt-6">
-          {step > 1 && (
-            <Button variant="outline" onClick={() => setStep(step - 1)} disabled={submitting} className="flex-1">
-              Retour
-            </Button>
-          )}
+          <Button
+            variant="outline"
+            onClick={() => setStep(step - 1)}
+            disabled={submitting}
+            className={cn("flex-1", step <= 1 && "hidden")}
+          >
+            Retour
+          </Button>
           {step < TOTAL_STEPS ? (
             step === slotStep ? (
               <Button onClick={handleNextFromSlots} disabled={!canGoNext() || checkingSlots} className="flex-1 gap-2">
